@@ -3,7 +3,6 @@ import "./SideNav.css";
 
 const SideNavOption = ({ setSelected, option, value, selected }) => {
   const fw = selected == value ? "600" : "500";
-  console.log(fw, selected, value);
   return (
     <div onClick={() => setSelected(value)} className="nav-option">
       <p style={{ fontWeight: fw }}>{option}</p>
@@ -27,6 +26,18 @@ const SideNav = ({ setSelected, selected }) => {
         setSelected={setSelected}
         option={"Animated Button"}
         value={1}
+        selected={selected}
+      />
+      <SideNavOption
+        setSelected={setSelected}
+        option={"Animated Divider"}
+        value={2}
+        selected={selected}
+      />
+      <SideNavOption
+        setSelected={setSelected}
+        option={"Spring Divider"}
+        value={3}
         selected={selected}
       />
     </div>
