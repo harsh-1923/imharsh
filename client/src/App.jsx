@@ -1,11 +1,17 @@
 import { useState } from "react";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Play from "./pages/Play/Play.jsx";
+import Home from "./pages/HomePage/Home.jsx";
 
 function App() {
   const [showText, setShowText] = useState(null);
   return (
-    <div>
-      <h2>Jai Siya Ram</h2>
+    <div className="app">
+      <Routes>
+        <Route path="" element={<Home />} />
+        <Route path="/play/*" element={<Play />} />
+      </Routes>
     </div>
   );
 }
