@@ -6,10 +6,6 @@ function App() {
   return (
     <div>
       <h2>Jai Siya Ram</h2>
-      <button onClick={() => setShowText(!showText)} class="btn">
-        Click for a message
-      </button>
-      {showText ? <p>I love you Alien</p> : null}
     </div>
   );
 }
