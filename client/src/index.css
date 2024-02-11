@@ -16,7 +16,12 @@
   box-sizing: border-box;
   font-family: sans-serif;
   font-weight: 400;
-  font-family: "PPT_Regular", "PPT_Bold", Poppins, Arial, Helvetica, sans-serif;
+  /* font-family: Inter var, Poppins, Arial, Helvetica, sans-serif; */
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    Noto Color Emoji;
+
   -webkit-text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
 }
@@ -28,6 +33,7 @@
 :root {
   --background-dark: #242424;
   --background-light: ##f4f2ee;
+  --font-faint: rgba(255, 255, 255, 0.7);
 }
 
 body {

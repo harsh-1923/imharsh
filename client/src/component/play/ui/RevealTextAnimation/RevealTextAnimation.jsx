@@ -4,7 +4,7 @@ import "./RevealTextAnimation.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const RevealTextAnimation = () => {
+const RevealTextAnimation = ({ children, fontSize }) => {
   useGSAP(() => {
     gsap.fromTo(
       ".cont",
@@ -21,10 +21,7 @@ const RevealTextAnimation = () => {
   return (
     <div className="container">
       <div className="text-container">
-        <h1 className="cont">Jai Siya Ram</h1>
-      </div>
-      <div className="text-container">
-        <p className="cont">Jai Siya Ram</p>
+        <div className="cont">{children}</div>
       </div>
     </div>
   );

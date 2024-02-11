@@ -2,7 +2,7 @@ import React from "react";
 import "./SideNav.css";
 
 const SideNavOption = ({ setSelected, option, value, selected }) => {
-  const fw = selected == value ? "600" : "500";
+  const fw = selected == value ? "600" : "400";
   return (
     <div onClick={() => setSelected(value)} className="nav-option">
       <p style={{ fontWeight: fw }}>{option}</p>

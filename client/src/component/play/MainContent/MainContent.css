@@ -3,6 +3,30 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  margin-top: 60px;
+  margin-right: 10px;
+  padding: 20px;
+}
+
+.hs {
+  color: wheat;
+}
+
+.main-cont-title {
+  width: 100%;
+}
+
+.main-cont-title h1 {
+  font-weight: 700;
+}
+
+.main-cont-title p,
+small {
+  margin-top: 5px;
+  color: var(--font-faint);
+}
+
+.main-cont-title p {
+  font-size: 18px;
 }

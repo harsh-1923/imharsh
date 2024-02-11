@@ -8,24 +8,28 @@ import SpringDivider from "../ui/SpringDivider/SpringDivider.jsx";
 import AnimatedNameLogo from "../ui/AnimatedNameLogo/AnimatedNameLogo.jsx";
 import { GridBackground } from "../ui/GridBackground/GridBackground.jsx";
 import DotBackground from "../ui/DotBackground/DotBackground.jsx";
+import DemoViewer from "../DemoViewer/DemoViewer.jsx";
 
-// const Throttler = () => {
-//   const [count, setCount] = React.useState(0);
-
-//   return (
-//     <>
-//       <p>{count}</p>
-//       <button onClick={() => setCount(count + 1)}>Click</button>
-//     </>
-//   );
-// };
+const Title = ({ val, selected }) => {
+  return (
+    <div className="main-cont-title">
+      <h1>Moving Border</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adip</p>
+      <small>11th Feb, 2024 | 6:53 PM - Bangalore</small>
+    </div>
+  );
+};
 
 const MainContent = ({ selected }) => {
   console.log(selected);
   const renderContent = (selected) => {
     switch (selected) {
       case 0:
-        return <RevealTextAnimation />;
+        return (
+          <RevealTextAnimation>
+            <h1>Jai Siya Ram</h1>
+          </RevealTextAnimation>
+        );
       case 1:
         return <AnimatedButton />;
       case 2:
@@ -37,7 +41,9 @@ const MainContent = ({ selected }) => {
       case 5:
         return (
           <GridBackground>
-            <RevealTextAnimation />
+            <RevealTextAnimation>
+              <h1>Grids are cool</h1>
+            </RevealTextAnimation>
           </GridBackground>
         );
       case 6:
@@ -45,7 +51,13 @@ const MainContent = ({ selected }) => {
     }
   };
 
-  return <div className="main-cont-wrap">{renderContent(selected)}</div>;
+  return (
+    <div className="main-cont-wrap">
+      <Title selected={selected} val={"hau"} />
+      {/* <DemoViewer selected={selected} /> */}
+      {renderContent(selected)}
+    </div>
+  );
 };
 
 export default MainContent;

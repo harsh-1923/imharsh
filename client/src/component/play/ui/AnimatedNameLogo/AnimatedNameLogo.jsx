@@ -10,7 +10,7 @@ const AnimatedNameLogo = ({ line1, line2 }) => {
   useEffect(() => {
     const element = elementRef.current;
     const handleMouseEnter = () => {
-      const y = hoverCount % 2 === 0 ? -34 : 0;
+      const y = hoverCount % 2 === 0 ? -54 : 0;
       gsap.to(element, {
         y,
         duration: 0.5,
@@ -27,8 +27,8 @@ const AnimatedNameLogo = ({ line1, line2 }) => {
     <div>
       <div className="container-name">
         <div ref={elementRef} className="container-cont">
-          <h1>{line1}</h1>
-          <h1>{line2}</h1>
+          <h1 className="an-cont">{line1}</h1>
+          <h1 className="an-cont">{line2}</h1>
         </div>
       </div>
     </div>
