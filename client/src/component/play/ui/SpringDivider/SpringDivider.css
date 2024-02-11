@@ -1,0 +1,31 @@
+.sd-wrap {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.boxt {
+  width: 2px;
+  content: "";
+  outline: 1px solid red;
+}
+
+.handler-wrap {
+  outline: 1px solid red;
+  position: relative;
+  content: "";
+  width: 1000px;
+  height: 10px;
+  z-index: 10;
+  transition: all 0.2s liner;
+}
+
+.sd-svg {
+  position: absolute;
+}
+
+.handler-wrap:hover {
+  height: 600px;
+}

@@ -9,7 +9,7 @@ const RevealTextAnimation = () => {
     gsap.fromTo(
       ".cont",
       {
-        y: "50",
+        y: "150",
       },
       {
         y: 0,
@@ -24,7 +24,7 @@ const RevealTextAnimation = () => {
         <h1 className="cont">Jai Siya Ram</h1>
       </div>
       <div className="text-container">
-        <h1 className="cont">Jai Siya Ram</h1>
+        <p className="cont">Jai Siya Ram</p>
       </div>
     </div>
   );

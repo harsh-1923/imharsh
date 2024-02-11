@@ -2,7 +2,6 @@
   width: 20vw;
   max-width: 300px;
   padding: 20px;
-  border-right: 1px solid black;
 }
 
 .scrible-logo-text {
@@ -18,5 +17,5 @@
 }
 
 .nav-option:hover {
-  background-color: rgb(168, 190, 255);
+  background-color: rgba(113, 108, 108, 0.758);
 }

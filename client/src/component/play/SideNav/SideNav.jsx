@@ -28,18 +28,36 @@ const SideNav = ({ setSelected, selected }) => {
         value={1}
         selected={selected}
       />
-      <SideNavOption
+      {/* <SideNavOption
         setSelected={setSelected}
         option={"Animated Divider"}
         value={2}
         selected={selected}
-      />
-      <SideNavOption
+      /> */}
+      {/* <SideNavOption
         setSelected={setSelected}
         option={"Spring Divider"}
         value={3}
         selected={selected}
+      /> */}
+      <SideNavOption
+        setSelected={setSelected}
+        option={"Name Logo"}
+        value={4}
+        selected={selected}
       />
+      <SideNavOption
+        setSelected={setSelected}
+        option={"Grid Background"}
+        value={5}
+        selected={selected}
+      />
+      {/* <SideNavOption
+        setSelected={setSelected}
+        option={"Dot Background"}
+        value={6}
+        selected={selected}
+      /> */}
     </div>
   );
 };

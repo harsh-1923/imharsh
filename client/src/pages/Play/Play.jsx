@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Play.css";
+
 import SideNav from "../../component/play/SideNav/SideNav";
 import MainContent from "../../component/play/MainContent/MainContent";
 

@@ -1,5 +1,6 @@
 .play-wrap {
-  background-color: var(--background-light);
+  background-color: #000;
+  color: white;
   width: 100vw;
   min-height: 100vh;
   display: flex;
