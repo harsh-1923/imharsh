@@ -9,6 +9,11 @@ import AnimatedNameLogo from "../ui/AnimatedNameLogo/AnimatedNameLogo.jsx";
 import { GridBackground } from "../ui/GridBackground/GridBackground.jsx";
 import DotBackground from "../ui/DotBackground/DotBackground.jsx";
 import DemoViewer from "../DemoViewer/DemoViewer.jsx";
+import AnimatedSVG from "../ui/AnimatedSVG/AnimatedSVG.jsx";
+import PulsatingPath from "../ui/PulsatingPath/PulsatingPath.jsx";
+import Loader from "../ui/Loader/Loader.jsx";
+import HoverAnimation from "../ui/HoverAnimation/HoverAnimation.jsx";
+import HoverList from "../ui/HoverList/HoverList.jsx";
 
 const Title = ({ val, selected }) => {
   return (
@@ -33,7 +38,11 @@ const MainContent = ({ selected }) => {
       case 1:
         return <AnimatedButton />;
       case 2:
-        return <AnimatedDivider />;
+        return (
+          <AnimatedDivider>
+            <AnimatedNameLogo line1="Harsh Sharma" line2="Code by Harsh" />
+          </AnimatedDivider>
+        );
       case 3:
         return <SpringDivider width={"1000"} height={"25"} />;
       case 4:
@@ -48,12 +57,18 @@ const MainContent = ({ selected }) => {
         );
       case 6:
         return <DotBackground />;
+      case 7:
+        return <AnimatedSVG />;
+      case 8:
+        return <Loader />;
+      case 9:
+        return <HoverList />;
     }
   };
 
   return (
     <div className="main-cont-wrap">
-      <Title selected={selected} val={"hau"} />
+      {/* <Title selected={selected} val={"hau"} /> */}
       {/* <DemoViewer selected={selected} /> */}
       {renderContent(selected)}
     </div>

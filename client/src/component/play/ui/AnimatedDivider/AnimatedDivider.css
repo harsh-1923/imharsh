@@ -1,12 +1,13 @@
-.test {
-  height: 70vh;
-  background-color: beige;
+.an-div-wrap {
+  width: 100%;
+}
+
+.divider-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
-.svg {
-  transition: all 0.2s ease-in-out;
+.div-svg {
+  width: 1000%;
 }

@@ -18,7 +18,7 @@ const SideNav = ({ setSelected, selected }) => {
       </div>
       <SideNavOption
         setSelected={setSelected}
-        option={"Reveal Text Aniamtion"}
+        option={"Reveal Text Animation"}
         value={0}
         selected={selected}
       />
@@ -28,18 +28,18 @@ const SideNav = ({ setSelected, selected }) => {
         value={1}
         selected={selected}
       />
-      {/* <SideNavOption
+      <SideNavOption
         setSelected={setSelected}
         option={"Animated Divider"}
         value={2}
         selected={selected}
-      /> */}
-      {/* <SideNavOption
+      />
+      <SideNavOption
         setSelected={setSelected}
         option={"Spring Divider"}
         value={3}
         selected={selected}
-      /> */}
+      />
       <SideNavOption
         setSelected={setSelected}
         option={"Name Logo"}
@@ -52,12 +52,30 @@ const SideNav = ({ setSelected, selected }) => {
         value={5}
         selected={selected}
       />
-      {/* <SideNavOption
+      <SideNavOption
         setSelected={setSelected}
         option={"Dot Background"}
         value={6}
         selected={selected}
-      /> */}
+      />
+      <SideNavOption
+        setSelected={setSelected}
+        option={"SVGPAth"}
+        value={7}
+        selected={selected}
+      />
+      <SideNavOption
+        setSelected={setSelected}
+        option={"Loader"}
+        value={8}
+        selected={selected}
+      />
+      <SideNavOption
+        setSelected={setSelected}
+        option={"Loaderssd"}
+        value={9}
+        selected={selected}
+      />
     </div>
   );
 };
