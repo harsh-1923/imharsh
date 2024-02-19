@@ -7,8 +7,10 @@ const InfiniteSlidingTextDemo = () => {
   return (
     <div className="scroll-flip-demo">
       <DemoTitle
-        title={"Animated Div Index"}
-        desc={"An animated component that shows the current index in view."}
+        title={"Scroll Direction Aware Infinite Scroll"}
+        desc={
+          "An infinite scroll of a text that changes direction on change of scroll direction"
+        }
         details={[
           {
             detail: "Inspiration",

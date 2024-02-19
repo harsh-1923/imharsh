@@ -37,7 +37,7 @@ const data = [
 
 const AnimatedIndexDivDemo = () => {
   return (
-    <div>
+    <div className="demo-wrapper">
       <DemoTitle
         title={"Animated Div Index"}
         desc={"An animated component that shows the current index in view."}

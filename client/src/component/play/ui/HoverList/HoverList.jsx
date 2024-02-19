@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./HoverList.css";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 const HoverList = ({ data, height, primaryColor, secondaryColor }) => {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [pos, setPos] = useState(-80);
   data = [
     { title: "Serene Sunshine", location: "Germany" },
     { title: "Tranquil Meadows", location: "France" },
@@ -14,7 +14,9 @@ const HoverList = ({ data, height, primaryColor, secondaryColor }) => {
     { title: "Relaxing Beach", location: "Maldives" },
   ];
   height = 80;
-  (primaryColor = "white"), (secondaryColor = "black");
+  // (primaryColor = "white"), (secondaryColor = "black");
+  if (!primaryColor) primaryColor = "white";
+  if (!secondaryColor) secondaryColor = "black";
 
   const handleMouseEnter = (idx, ts) => {
     gsap.to(".highlight", {
@@ -24,20 +26,19 @@ const HoverList = ({ data, height, primaryColor, secondaryColor }) => {
     });
   };
 
-  //   const handleMouseMove = (event) => {
-  //     const { clientX, clientY } = event;
-  //     const rect = event.currentTarget.getBoundingClientRect();
-  //     const offsetX = clientX - rect.left;
-  //     const offsetY = clientY - rect.top;
-  //     setPos({ x: offsetX, y: offsetY });
-  //   };
-  //   const handleMouseLeave = (event) => {
-  //     setPos({ x: 0, y: 0 });
-  //   };
+  const handleMouseLeave = (e) => {
+    gsap.to(".highlight", {
+      top: -80,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+  };
+  const handleMouseMove = (e) => {};
+
   return (
     <div
       onMouseMove={(e) => handleMouseMove(e)}
-      onMouseLeave={() => handleMouseLeave()}
+      onMouseLeave={(e) => handleMouseLeave(e)}
       className="hover-list-wrap"
     >
       {data.map((item, idx) => {
@@ -45,14 +46,14 @@ const HoverList = ({ data, height, primaryColor, secondaryColor }) => {
           <div
             onMouseEnter={() => handleMouseEnter(idx, idx * height)}
             className="list-item-wrap"
-            style={{ height, color: "white" }}
+            style={{ height, color: primaryColor }}
           >
-            <span>
-              <h1 style={{ color: "white" }}>{item.title}</h1>
-            </span>
-            <span>
+            <div>
+              <h1>{item.title}</h1>
+            </div>
+            <div className="mid">
               <h1>{item.location}</h1>
-            </span>
+            </div>
             <div className="arrow-icon">
               <ArrowOutwardIcon className="arrow-icon" />
             </div>
@@ -61,7 +62,7 @@ const HoverList = ({ data, height, primaryColor, secondaryColor }) => {
       })}
       <div
         className="highlight"
-        style={{ height, backgroundColor: "gray" }}
+        style={{ height, backgroundColor: secondaryColor }}
       ></div>
     </div>
   );
