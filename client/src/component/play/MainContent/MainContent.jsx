@@ -8,6 +8,8 @@ import ObserverDiv from "../ui/ObserverDiv/ObserverDiv";
 import AnimatedDivIndex from "../ui/AnimatedDivIndex/AnimatedDivIndex";
 
 import AnimatedIndexDevDemo from "../Demos/AnimatedIndexDivDemo/AnimatedIndexDivDemo.jsx";
+import ScrollFlipInfiniteText from "../ui/ScrollFlipInfiniteText/ScrollFlipInfiniteText.jsx";
+import InfiniteSlidingTextDemo from "../Demos/InfiniteSlidingTextDemo/InfiniteSlidingTextDemo.jsx";
 
 const MainContent = ({ selected }) => {
   const renderDemo = () => {
@@ -26,6 +28,8 @@ const MainContent = ({ selected }) => {
       //   return <AirbusConns />;
       case 0:
         return <AnimatedIndexDevDemo />;
+      case 1:
+        return <InfiniteSlidingTextDemo />;
     }
   };
   return <div className="main-cont-wrap">{renderDemo(selected)}</div>;

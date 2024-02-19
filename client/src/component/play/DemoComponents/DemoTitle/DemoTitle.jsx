@@ -10,7 +10,13 @@ const DemoTitle = ({ title, desc, details }) => {
       <p className="demo-desc">{desc}</p>
       <div className="demo-details">
         {details.map((detail, i) => {
-          return <DemoDetailsBox content={detail.detail} link={detail.link} />;
+          return (
+            <DemoDetailsBox
+              key={i}
+              content={detail.detail}
+              link={detail.link}
+            />
+          );
         })}
         {/* <DemoDetailsBox
           content={"Inspiration"}
