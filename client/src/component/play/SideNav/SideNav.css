@@ -1,22 +1,17 @@
 .sidenav-wrap {
   width: 20vw;
-  max-width: 300px;
-  padding: 20px;
+  padding: 30px 20px 0px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.scrible-logo-text {
-  font-weight: 600;
-  margin-bottom: 20px;
+.side-nav-options-wrap {
+  margin-right: 20px;
 }
-
 .nav-option {
   cursor: pointer;
   padding: 10px 5px;
   border-radius: 5px;
   transition: all 0.1s ease-in-out;
-  font-size: 14px;
-}
-
-.nav-option:hover {
-  background-color: rgba(113, 108, 108, 0.758);
+  font-size: 16px;
 }

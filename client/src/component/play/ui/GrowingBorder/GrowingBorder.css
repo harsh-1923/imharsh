@@ -1,0 +1,11 @@
+.grow-wrap {
+  height: 1px;
+  position: absolute;
+  left: 0;
+}
+
+.grow-border-wrap {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+}

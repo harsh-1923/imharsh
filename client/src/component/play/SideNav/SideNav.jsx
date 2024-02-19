@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SideNav.css";
+import { gsap } from "gsap";
+import sidenavOptions from "../util.js";
 
 const SideNavOption = ({ setSelected, option, value, selected }) => {
   const fw = selected == value ? "600" : "400";
@@ -13,10 +15,51 @@ const SideNavOption = ({ setSelected, option, value, selected }) => {
 const SideNav = ({ setSelected, selected }) => {
   return (
     <div className="sidenav-wrap">
-      <div className="side-nav-logo">
-        <h2 className="scrible-logo-text">ScribleUI</h2>
-      </div>
-      <SideNavOption
+      {sidenavOptions.map((item, index) => {
+        return (
+          <SideNavOption
+            key={index}
+            setSelected={setSelected}
+            option={item.title}
+            value={index}
+            selected={selected}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+// const SideNavs = ({ setSelected, selected }) => {
+//   useEffect(() => {
+//     gsap.fromTo(
+//       ".side-nav-options-wrap",
+//       { maxHeight: 0, opacity: 0 },
+//       { maxHeight: "100vh", opacity: 1, duration: 2 }
+//     );
+//   }, []);
+//   return (
+//     <div className="sidenav-wrap border">
+//       <div className="side-nav-options-wrap">
+//         {SideNavData.map((item, index) => {
+//           return (
+//             <SideNavOption
+//               setSelected={setSelected}
+//               option={item}
+//               value={index}
+//               selected={selected}
+//             />
+//           );
+//         })}
+//       </div>
+//     </div>
+//   );
+// };
+
+export default SideNav;
+
+{
+  /* <SideNavOption
         setSelected={setSelected}
         option={"Reveal Text Animation"}
         value={0}
@@ -76,8 +119,16 @@ const SideNav = ({ setSelected, selected }) => {
         value={9}
         selected={selected}
       />
-    </div>
-  );
-};
-
-export default SideNav;
+      <SideNavOption
+        setSelected={setSelected}
+        option={"SVG Trick"}
+        value={10}
+        selected={selected}
+      />
+      <SideNavOption
+        setSelected={setSelected}
+        option={"Growing Border"}
+        value={11}
+        selected={selected}
+      /> */
+}

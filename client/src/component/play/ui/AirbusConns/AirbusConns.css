@@ -1,0 +1,14 @@
+.airbus-conns-wrap {
+  width: 100%;
+  max-height: 50vh;
+  color: white;
+  height: 300vh;
+  position: relative;
+  top: 20px;
+}
+
+.airbus-comm-effect {
+  position: sticky;
+  top: 20px;
+  width: 100%;
+}

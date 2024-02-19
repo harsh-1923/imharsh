@@ -1,7 +1,47 @@
 .play-wrap {
-  background-color: #000;
-  color: white;
   width: 100vw;
-  min-height: 100vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgb(64, 10, 124);
+  background: -moz-linear-gradient(
+    203deg,
+    rgba(64, 10, 124, 1) 10%,
+    rgba(0, 0, 0, 1) 36%
+  );
+  background: -webkit-linear-gradient(
+    203deg,
+    rgba(64, 10, 124, 1) 10%,
+    rgba(0, 0, 0, 1) 36%
+  );
+  background: linear-gradient(
+    203deg,
+    rgba(64, 10, 124, 1) 10%,
+    rgba(0, 0, 0, 1) 36%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#400a7c",endColorstr="#000000",GradientType=1);
+  color: whitesmoke;
+}
+
+.scrible-logo-wrap {
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0px 20px;
+  cursor: pointer;
+}
+
+.scrible-logo-text {
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.play-cont-wrap {
+  width: 100%;
+  min-height: calc(100dvh - 60px);
+  display: flex;
+  align-content: center;
+  overflow: scroll;
 }

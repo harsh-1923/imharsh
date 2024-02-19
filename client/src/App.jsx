@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Play from "./pages/Play/Play.jsx";
-import Airbus from "./pages/Airbus/Airbus.jsx";
 import Home from "./pages/HomePage/Home.jsx";
 
 function App() {
@@ -10,9 +9,8 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="" element={<Home />} />
-        <Route path="/play/*" element={<Play />} />
-        <Route path="/airbus" element={<Airbus />} />
+        <Route path="" element={<Play />} />
+        {/* <Route path="/play/*" element={<Play />} /> */}
       </Routes>
     </div>
   );
