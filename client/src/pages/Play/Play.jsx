@@ -7,7 +7,7 @@ import MainContent from "../../component/play/MainContent/MainContent";
 import GrowingBorder from "../../component/play/ui/GrowingBorder/GrowingBorder";
 
 const Play = () => {
-  const [selected, setSelected] = useState(-1);
+  const [selected, setSelected] = useState(0);
 
   return (
     <div className="play-wrap">

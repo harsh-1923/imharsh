@@ -24,7 +24,7 @@ const MainContent = ({ selected }) => {
       //   return <AnimatedButton />;
       // case 2:
       //   return <AirbusConns />;
-      case -1:
+      case 0:
         return <AnimatedIndexDevDemo />;
     }
   };
