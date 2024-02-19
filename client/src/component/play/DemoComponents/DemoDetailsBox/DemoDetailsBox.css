@@ -1,0 +1,17 @@
+.demo-details-wrap {
+  padding: 10px 20px;
+  border-radius: 10px;
+  outline: 1px solid rgba(255, 255, 255, 0.432);
+  display: inline-block;
+  margin: 5px 10px 5px 0px;
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.demo-details-wrap:hover {
+  outline: 1px solid rgba(255, 255, 255);
+  opacity: 1;
+}

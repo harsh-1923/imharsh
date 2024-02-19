@@ -26,8 +26,6 @@ const PulsatingPath = ({ path }) => {
           y1="100%"
           x2="100%"
           y2="100%"
-
-          //   gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#18CCFC" stopOpacity="0"></stop>
           <stop stopColor="#18CCFC"></stop>
