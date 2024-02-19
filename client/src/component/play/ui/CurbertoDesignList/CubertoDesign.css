@@ -14,15 +14,12 @@
 .cuberto-design-list-backdrop {
   position: absolute;
   width: 100%;
-  /* background-color: whitesmoke; */
   background-color: var(--pastle-purple);
-
+  height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: none;
-  /* top: calc(50% - 5px); */
-  /* height: 10px; */
 }
 
 .backdrop-text {
