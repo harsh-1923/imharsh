@@ -7,7 +7,7 @@ const AnimatedDivIndex = ({ contentList }) => {
   const parentRef = useRef(null);
 
   const divRef = Array.from({ length: contentList.length }, () => useRef(null));
-  const [current, setCurrent] = useState(1);
+  const [current, setCurrent] = useState("01");
 
   useEffect(() => {
     const obs = new IntersectionObserver(

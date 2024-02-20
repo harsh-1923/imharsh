@@ -4,6 +4,7 @@ const sidenavOptions = [
   { title: "Scroll Flip Animation", component: RevealTextAnimation },
   { title: "Hover List", component: RevealTextAnimation },
   { title: "Cuberto Design List", component: RevealTextAnimation },
+  { title: "Animated Modal", component: RevealTextAnimation },
 ];
 
 export default sidenavOptions;

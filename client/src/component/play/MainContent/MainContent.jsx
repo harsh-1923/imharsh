@@ -15,6 +15,7 @@ import HoverListDemo from "../Demos/HoverListDemo/HoverListDemo.jsx";
 import ScribleUI from "../ScribleUI/ScribleUI.jsx";
 import CubertoDesignList from "../ui/CurbertoDesignList/CubertoDesignList.jsx";
 import CubertoDesignListDemo from "../Demos/CubertoDesignListDemo/CubertoDesignListDemo.jsx";
+import AnimatedModalDemo from "../Demos/AnimatedModalDemo/AnimatedModalDemo.jsx";
 
 const MainContent = ({ selected }) => {
   const renderDemo = () => {
@@ -29,6 +30,8 @@ const MainContent = ({ selected }) => {
         return <HoverListDemo />;
       case 3:
         return <CubertoDesignListDemo />;
+      case 4:
+        return <AnimatedModalDemo />;
     }
   };
   return <div className="main-cont-wrap">{renderDemo(selected)}</div>;

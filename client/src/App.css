@@ -31,3 +31,19 @@ button:focus-visible {
 .outline-thin {
   outline: 1px solid rgba(240, 240, 240, 0.32);
 }
+
+.large-header {
+  font-size: 60px;
+  font-weight: 600;
+  letter-spacing: -0.14rem;
+}
+
+.header {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.1rem;
+}
+
+.italicize {
+  font-style: italic;
+}

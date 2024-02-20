@@ -17,8 +17,9 @@ const ScrollFlipInfiniteText = ({ content }) => {
     } else if (xPercent > 0) {
       xPercent = -100;
     }
-    gsap.set(firstText.current, { xPercent: xPercent });
-    gsap.set(secondText.current, { xPercent: xPercent });
+    if (firstText.current) gsap.set(firstText.current, { xPercent: xPercent });
+    if (secondText.current)
+      gsap.set(secondText.current, { xPercent: xPercent });
     requestAnimationFrame(animate);
     xPercent += 0.1 * direction.current;
   };
