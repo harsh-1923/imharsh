@@ -1,28 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./Play.css";
-import MenuIcon from "@mui/icons-material/Menu";
-
-import SideNav from "../../component/play/SideNav/SideNav";
-import MainContent from "../../component/play/MainContent/MainContent";
-import GrowingBorder from "../../component/play/ui/GrowingBorder/GrowingBorder";
+import gsap from "gsap";
 
 const Play = () => {
-  const [selected, setSelected] = useState(-1);
-
   return (
     <div className="play-wrap">
-      <div className="play-header-wrap">
-        <div className="scrible-logo-wrap">
-          <MenuIcon className="menu-icon" />
-          <h3 onClick={() => setSelected(-1)} className="scrible-logo-text">
-            ScribleUI
-          </h3>
-        </div>
+      <div className="scrible-nav-wrap">
+        <h3 className="scrible-logo-text">ScribleUI</h3>
+        <button className="transparent-button">Components</button>
       </div>
-      <GrowingBorder color={"white"} />
-      <div className="play-cont-wrap">
-        <SideNav setSelected={setSelected} selected={selected} />
-        <MainContent selected={selected} />
+      <div className="hero-ctr">
+        <h1 className="scrible-hero-text capitalize hero-header">
+          Demystifying <br /> Web Magic
+        </h1>
+        <p className="main-subheader scrible-subheader">
+          The best from the web - brokern down and recreated
+        </p>
       </div>
     </div>
   );
