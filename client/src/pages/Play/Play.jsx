@@ -14,9 +14,13 @@ const Play = () => {
           Demystifying <br /> Web Magic
         </h1>
         <p className="main-subheader scrible-subheader">
-          The best from the web - brokern down and recreated
+          The best from the web. Brokern down and recreated
         </p>
       </div>
+
+      <div className="fillers"></div>
+      <div className="fillers"></div>
+      <div className="fillers"></div>
     </div>
   );
 };
