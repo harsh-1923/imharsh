@@ -12,16 +12,15 @@ const ScribleUI = () => {
           <h1>
             <span style={{ color: "#c2f8cb" }} className="italics">
               Experimenting
-            </span>{" "}
+            </span>
             with
           </h1>
         </RevealTextAnimation>
         <RevealTextAnimation>
-          {" "}
           <h1>
             <span style={{ color: "#ffd899" }} className="italics">
               Extraordinary
-            </span>{" "}
+            </span>
             digital experience
           </h1>
         </RevealTextAnimation>

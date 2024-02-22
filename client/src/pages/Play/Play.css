@@ -12,7 +12,7 @@
   justify-content: space-between;
   padding: 0px var(--scrible-page-padding);
   backdrop-filter: blur(12px);
-  position: sticky;
+  /* position: sticky; */
   height: 80px;
   top: 0;
   z-index: 2000;

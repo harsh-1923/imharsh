@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./Play.css";
 import gsap from "gsap";
+import ThatUI from "../../component/play/ScribleUIComponents/ThatUI/ThatUI";
 
 const Play = () => {
   return (
@@ -17,6 +18,11 @@ const Play = () => {
           The best from the web. Brokern down and recreated
         </p>
       </div>
+      <div className="fillers"></div>
+      <div className="fillers"></div>
+      <div className="fillers"></div>
+
+      <ThatUI />
 
       <div className="fillers"></div>
       <div className="fillers"></div>
