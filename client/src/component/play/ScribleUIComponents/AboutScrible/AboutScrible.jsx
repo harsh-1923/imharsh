@@ -99,6 +99,7 @@ const AboutScrible = () => {
       <div className="about-scrible-right-wrap ">
         <Snippet />
         <SnippetAlt />
+        <SnippetAlt />
       </div>
     </div>
   );
