@@ -3,14 +3,30 @@
   margin: 0;
 }
 
-button {
+.glass-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  color: white;
+  position: relative;
+}
+
+.glass-button:hover {
+  outline: 1px solid rgba(209, 201, 201, 0.312);
+}
+
+.transparent-button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(84, 84, 85, 0.128);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a5a;
   color: white;
   cursor: pointer;
   transition: border-color 0.25s;
@@ -18,10 +34,10 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
+/* button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 .flex {
   display: flex;
@@ -46,4 +62,13 @@ button:focus-visible {
 
 .italicize {
   font-style: italic;
+}
+
+.text-normal {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.secondary-text {
+  opacity: 0.7;
 }
