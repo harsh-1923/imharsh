@@ -1,0 +1,20 @@
+.demo-page-wrap {
+  max-width: 100dvw;
+  height: 100dvh;
+  /* padding: 0px var(--scrible-page-padding); */
+  color: whitesmoke;
+}
+
+.animated-div-hue {
+  min-width: 100vw;
+  height: 400px;
+  /* margin: -80px; */
+  position: fixed;
+  top: 0px;
+  background: radial-gradient(
+    ellipse 80% 100% at 50% -10%,
+    #1c384de6,
+    rgba(28, 56, 77, 0)
+  );
+  z-index: -2;
+}

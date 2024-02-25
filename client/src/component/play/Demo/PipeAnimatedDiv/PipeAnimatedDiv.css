@@ -1,0 +1,10 @@
+.pipe-div-hue {
+  min-width: 100vw;
+  height: 200px;
+  margin: -80px;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% -10%,
+    rgba(71, 77, 28, 0.9),
+    rgba(28, 56, 77, 0)
+  );
+}

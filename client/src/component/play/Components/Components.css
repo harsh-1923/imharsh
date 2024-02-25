@@ -1,0 +1,35 @@
+.components-wrap {
+  color: whitesmoke;
+  width: 100dvw;
+  min-height: 100dvh;
+}
+
+.component-hero-ctr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 150px var(--scrible-page-padding);
+  background: radial-gradient(
+    ellipse 100% 100% at 50% -10%,
+    rgba(28, 77, 51, 0.9),
+    rgba(0, 0, 0, 0)
+  );
+  margin-top: -80px;
+}
+
+.component-header {
+  font-size: clamp(44px, 10vw, 9rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.25rem;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 440px) {
+  .component-header {
+    font-size: 34px;
+    letter-spacing: -0.1rem;
+  }
+}

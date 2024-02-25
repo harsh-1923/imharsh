@@ -14,7 +14,12 @@ const Play = () => {
         <h3 onClick={() => navigate("")} className="scrible-logo-text">
           ScribleUI
         </h3>
-        <button className="transparent-button">Components</button>
+        <button
+          onClick={() => navigate("/components")}
+          className="transparent-button"
+        >
+          Components
+        </button>
       </div>
       <div className="hero-ctr">
         <button onClick={() => navigate("/changelog")} className="glass-button">

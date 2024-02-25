@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import "./AnimatedDivIndex.css";
 import GrowingBorder from "../GrowingBorder/GrowingBorder";
 
@@ -18,6 +18,7 @@ const AnimatedDivIndex = ({ contentList }) => {
               (ref) => ref.current === entry.target
             );
             animateIndexChange(index + 1);
+            console.log(index);
           }
         });
       },
@@ -35,14 +36,14 @@ const AnimatedDivIndex = ({ contentList }) => {
 
   const animateIndexChange = (index) => {
     if (index.toString === current) return;
-    gsap.to(".index-container", {
+    gsap.to(".refire-animated-div-index", {
       y: -100,
       duration: 0.3,
       ease: "power4.in",
       onComplete: () => {
         setCurrent(index < 10 ? `0${index}` : index.toString());
         gsap.fromTo(
-          ".index-container",
+          ".refire-animated-div-index",
           { y: 100 },
           { y: 0, duration: 0.3, ease: "power2.out" }
         );
@@ -51,18 +52,23 @@ const AnimatedDivIndex = ({ contentList }) => {
   };
 
   return (
-    <div ref={parentRef} className="animated-div-wrap">
-      <div className="animated-div-left">
-        <div className="animated-div-hidder">
-          <div className="index-container">
-            <p>{current}</p>
-          </div>
+    <div className="refire-animated-div-wrap ">
+      <div className="refire-animated-div-left">
+        <div className="refire-animated-div-index">
+          <h1>{current}</h1>
         </div>
       </div>
-      <div className="animated-div-right">
+      <div className="refire-animated-div-right ">
         {contentList.map((d, index) => {
           return (
-            <div key={index} ref={divRef[index]} className="conts">
+            <div
+              key={index}
+              ref={divRef[index]}
+              className="refire-animated-div-cont-wrap"
+            >
+              <p className="refire-animated-div-index-right-for-mobile">
+                {`0${index + 1}`}
+              </p>
               <GrowingBorder />
               <br />
               <h1>{d.title}</h1>
