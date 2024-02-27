@@ -1,0 +1,36 @@
+.job-details-header-wrap {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.job-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.job-details-header-wrap p {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.details-wrap {
+  display: flex;
+  margin-top: 10px;
+  /* align-items: center; */
+}
+
+.job-details {
+  padding-left: 12px;
+  margin-top: 20px;
+}
+
+.job-details span {
+  opacity: 0.6;
+}
+
+.job-details p {
+  font-size: 16px;
+  line-height: 28px;
+}

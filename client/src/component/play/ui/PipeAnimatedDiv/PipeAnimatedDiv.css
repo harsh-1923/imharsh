@@ -1,0 +1,26 @@
+.pipe-animated-div-wrap {
+  width: 100%;
+  padding: 0px var(--scrible-page-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pipe-animated-left-wrap,
+.pipe-animated-right-wrap {
+  padding: 20px;
+  border-radius: 10px;
+  height: 70vh;
+  /* transition: width 150ms bounce; */
+}
+.pipe-animated-left-wrap {
+  width: calc(60% - 5px);
+  background-color: #121316;
+}
+
+.pipe-animated-right-wrap {
+  --pipe: #c6d9f6;
+  width: calc(40% - 5px);
+  background-color: #c6d9f6;
+  color: black;
+}

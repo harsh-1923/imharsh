@@ -33,3 +33,71 @@
     letter-spacing: -0.1rem;
   }
 }
+
+.test {
+  display: flex;
+  position: relative;
+}
+
+.component-search {
+  /* position: absolute; */
+  min-width: 20%;
+}
+
+.comp-search-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  /* display: none !important; */
+  padding: 0px var(--scrible-page-padding);
+  /* padding: 100px; */
+}
+
+.component-container {
+  flex: 1 1 50%;
+  max-width: calc(50% - 20px);
+  margin: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comp-view {
+  width: 100%;
+  padding: 40px;
+  max-width: 800px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+  background-color: #161616;
+  border-radius: 20px;
+}
+
+.comp-view h2 {
+  font-weight: 500;
+  line-height: 1.8rem;
+  margin-top: 10px;
+  /* color: #af52de; */
+}
+
+.comp-view p {
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+.comp-view small {
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+@media (max-width: 800px) {
+  .component-container {
+    flex-basis: 100%;
+    max-width: calc(100% - 20px);
+  }
+
+  .component-header {
+    letter-spacing: normal;
+  }
+}

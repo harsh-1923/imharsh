@@ -1,0 +1,47 @@
+.home-wrap {
+  padding: 100px var(--scrible-page-padding);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.box {
+  position: fixed;
+  inset: 0;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+}
+
+.basic-text {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.section-wrap {
+  width: 100%;
+  position: relative;
+}
+
+.section-div {
+  position: absolute;
+  width: 100%;
+  background-color: rgb(167, 163, 163, 0.4);
+  height: 1px;
+  margin-bottom: 15px;
+}
+
+.underline {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .home-wrap {
+    padding: 100px 35px;
+  }
+}
+
+.color-red {
+  color: red;
+}
