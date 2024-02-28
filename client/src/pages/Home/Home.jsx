@@ -3,19 +3,9 @@ import "./Home.css";
 import SectionHeader from "../../component/SectionHeader/SectionHeader";
 import JobDetails from "../../component/JobDetails/JobDetails";
 import Navbar from "../../component/Navbar/Navbar";
-import Typewriter from "../../component/Typewriter/Typewriter";
+import FAQ from "../../component/FAQ/FAQ";
 
 const Home = () => {
-  const getTime = async () => {
-    const data = await fetch(
-      "http://worldtimeapi.org/api/timezone/Asia/Kolkata"
-    );
-    const time = await data.json();
-    console.log(time);
-  };
-  React.useEffect(() => {
-    getTime();
-  }, []);
   return (
     <div className="home-wrap">
       <Navbar />
@@ -97,6 +87,7 @@ const Home = () => {
           </li>
         </ul>
       </JobDetails>
+      <FAQ />
       <div className="filler"></div>
     </div>
   );

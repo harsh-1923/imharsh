@@ -6,14 +6,13 @@
   position: sticky;
   top: 0;
   padding: 15px 0px;
-
+  z-index: 100;
   backdrop-filter: blur(2px);
 }
 
 .navbar-name {
   font-size: 24px;
   font-weight: 500;
-  /* letter-spacing: -0.09px; */
 }
 
 .menu-icon {
@@ -25,10 +24,31 @@
   align-items: center;
   justify-content: space-around;
   padding: 0px 2px;
+  position: relative;
 }
 
 .menu-icon-dot {
   width: 2px;
   height: 2px;
+  border-radius: 50%;
   background-color: orange;
+}
+
+.menu-option-wrap {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  /* padding: 10px; */
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgb(47, 46, 46);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  outline: 1px dotted red;
+}
+
+.menu-option-wrap p {
+  padding: 10px;
 }
