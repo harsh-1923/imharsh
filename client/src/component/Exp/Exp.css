@@ -1,0 +1,16 @@
+.exp-wrap {
+  padding: 100px var(--scrible-page-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.options-wrap {
+  background-color: rgb(141, 141, 141);
+  padding: 10px;
+  /* transition: transform; */
+}
+
+.option {
+  padding: 10px 5px;
+}

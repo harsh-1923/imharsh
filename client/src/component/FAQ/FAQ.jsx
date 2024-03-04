@@ -1,13 +1,27 @@
 import React from "react";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./FAQ.css";
 
-const FAQList = [
-  { question: "Am I looking for opportunities?", answer: "Yes" },
-  //   { question: "Am I looking for opportunities?", answer: "Yes" },
-  //   { question: "Am I looking for opportunities?", answer: "Yes" },
-  //   { question: "Am I looking for opportunities?", answer: "Yes" },
-  //   { question: "Am I looking for opportunities?", answer: "Yes" },
+const FAQs = [
+  {
+    question: "Am I looking for opportunities",
+    answer: "Yes mfiosHD FHASDHFLJAHSD JFHJK",
+  },
+  {
+    question: "Am I looking for opportunities",
+    answer: "Yes mfiosHD FHASDHFLJAHSD JFHJK",
+  },
+  {
+    question: "Am I looking for opportunities",
+    answer: "Yes mfiosHD FHASDHFLJAHSD JFHJK",
+  },
+  {
+    question: "Am I looking for opportunities",
+    answer: "Yes mfiosHD FHASDHFLJAHSD JFHJK",
+  },
+  {
+    question: "Am I looking for opportunities",
+    answer: "Yes mfiosHD FHASDHFLJAHSD JFHJK",
+  },
 ];
 
 const FAQItem = ({ item }) => {
@@ -15,15 +29,17 @@ const FAQItem = ({ item }) => {
   return (
     <div className="faq-item-wrap">
       <div
-        onClick={() => toggleClick(setExpanded(!expanded))}
-        className="faq-question-wrap"
-        style={{ height: `${expanded ? "auto" : "24px"}` }}
+        onClick={() => setExpanded(!expanded)}
+        className="faq-question
+      "
       >
-        <p className="faq-ques basic-text">{item.question}</p>
-        <ExpandMoreIcon fontSize="medium" />
+        {item.question}
       </div>
-      <div className="ans-wrap">
-        <p>{item.answer}</p>
+      <div
+        data-state={`${expanded ? "collapsed" : "expanded"}`}
+        className="faq-answer basic-text"
+      >
+        {item.answer}
       </div>
     </div>
   );
@@ -31,11 +47,11 @@ const FAQItem = ({ item }) => {
 
 const FAQ = () => {
   return (
-    <div className="faq-wrap">
-      <div className="faq-left"></div>
+    <div className="faq-section-wrap">
+      <div className="faq-left">left</div>
       <div className="faq-right">
-        {FAQList.map((faq, i) => {
-          return <FAQItem item={faq} key={i} />;
+        {FAQs.map((faq, index) => {
+          return <FAQItem index={index} item={faq} />;
         })}
       </div>
     </div>

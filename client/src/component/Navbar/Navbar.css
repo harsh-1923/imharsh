@@ -3,11 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
+  /* position: sticky; */
   top: 0;
-  padding: 15px 0px;
+  height: 60px;
   z-index: 100;
-  backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
+  /* outline: 1px solid red; */
 }
 
 .navbar-name {
@@ -25,6 +26,7 @@
   justify-content: space-around;
   padding: 0px 2px;
   position: relative;
+  cursor: pointer;
 }
 
 .menu-icon-dot {
@@ -34,21 +36,30 @@
   background-color: orange;
 }
 
-.menu-option-wrap {
-  position: absolute;
-  top: 20px;
-  right: 0px;
-  /* padding: 10px; */
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: rgb(47, 46, 46);
-  backdrop-filter: blur(5px);
-  overflow: hidden;
-  outline: 1px dotted red;
+.menu-wrapper {
+  position: relative;
 }
 
-.menu-option-wrap p {
+.menu-options-wrap {
+  top: 150%;
+  right: 0;
+  /* background-color: red; */
+  background-color: #272727;
+  width: 100px;
+  /* height: auto; */
   padding: 10px;
+  position: absolute;
+  transition: all 400ms cubic-bezier(0.77, 0, 0.18, 1);
+  scale: 0;
+  transform-origin: top right;
+}
+
+.menu-options-wrap:where([data-state="closed"]) {
+  scale: 0;
+  opacity: 0;
+}
+
+.menu-options-wrap:where([data-state="open"]) {
+  scale: 1;
+  opacity: 1;
 }
