@@ -15,6 +15,9 @@ app.get("/", (req, res) => {
   res.json("hello");
 });
 
+const assistantChatRouter = require("./Router/ChatAssistantRouter.js");
+app.use("/api/v1/chat-assistant", assistantChatRouter);
+
 mongoose.connect(dburl).then(() => {
   console.log("Connected bro");
 });
