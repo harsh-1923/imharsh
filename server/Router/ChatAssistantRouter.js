@@ -3,7 +3,7 @@ const assistantChatRouter = express.Router();
 const AssistantChatSchema = require("../Models/AssistantChatModel.js");
 bodyParser = require("body-parser").json();
 
-assistantChatRouter.post("/test-deployment", (req, res) => {
+assistantChatRouter.get("/test-deployment", (req, res) => {
   const { message } = req.body;
   const ip = req.ip;
   console.log(ip);
