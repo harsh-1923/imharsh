@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const AssistantChatSchema = new mongoose.Schema({
-  chatID: { type: String, required: true },
+  chatID: { type: String, required: true, unique: true },
   ip: { type: String, required: false },
   history: [
     {

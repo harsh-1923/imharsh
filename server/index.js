@@ -1,3 +1,4 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
@@ -8,7 +9,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 
-const PORT = 8000;
+const PORT = process.env.PORT;
 const dburl = require("./config.js").url;
 
 app.get("/", (req, res) => {
