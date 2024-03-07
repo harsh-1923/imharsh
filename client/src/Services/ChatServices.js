@@ -1,6 +1,6 @@
 import axios from "axios";
 // const API = "http://localhost:8000/api/v1/chat-assistant";
-const API = "imharsh-server.vercel.app/api/v1/chat-assistant";
+const API = "https://imharsh-server.vercel.app/api/v1/chat-assistant";
 
 export default {
   initChat: async () => {
