@@ -89,7 +89,7 @@ assistantChatRouter.post("/ask", async (req, res) => {
   const { question, chatID } = req.body;
   const MODEL_NAME = "gemini-1.0-pro";
 
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.VITE_API_KEY);
   const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
   const chat = await AssistantChatSchema.findOne({ chatID });
