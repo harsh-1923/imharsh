@@ -142,7 +142,7 @@ const AssistantChat = () => {
           </form>
         </div>
       </div>
-      <div className="assistant-suggestion-section only-desktop">
+      {/* <div className="assistant-suggestion-section only-desktop">
         {suggestions.map((suggestion, i) => {
           return (
             <div
@@ -154,7 +154,7 @@ const AssistantChat = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
