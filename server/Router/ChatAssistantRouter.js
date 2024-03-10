@@ -76,7 +76,12 @@ assistantChatRouter.post("/init", (req, res) => {
 assistantChatRouter.get("/all", (req, res) => {
   AssistantChatSchema.find()
     .then((chats) => {
-      res.status(200).json({ message: "Found chats", chats, error: false });
+      res.status(200).json({
+        message: "Found chats",
+        chats,
+        count: chats.length,
+        error: false,
+      });
     })
     .catch((err) => {
       res

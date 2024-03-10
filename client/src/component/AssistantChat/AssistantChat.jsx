@@ -17,10 +17,11 @@ const WelcomeBanner = () => {
 };
 
 const ResponseDisplay = ({ answer }) => {
-  console.log(typeof answer);
+  console.log(answer);
+  // console.log(typeof answer);
   return (
     <div className="assistant-chat-response-wrap outline">
-      {/* <p className="basic-text">{text && text.text}</p> */}
+      <p className="basic-text">{answer.text}</p>
     </div>
   );
 };
@@ -34,6 +35,7 @@ const QuestionDisplay = ({ text }) => {
 };
 
 const AssistantChat = () => {
+  console.log("Rendering");
   const [isLoading, setIsLoading] = useState(true);
   const [firstQuesAsked, setFirstQuesAsked] = useState(false);
   const [question, setQuestion] = useState();
@@ -79,11 +81,10 @@ const AssistantChat = () => {
     }
     const details = { chatID, question };
     const response = await ChatServices.ask(details);
-    console.log(response.answer);
-    const answerObj = JSON.parse(response.answer);
-    console.log(answerObj);
+    console.log(response.answerObj);
+
     setFetchingRes(false);
-    setAnswer(response);
+    setAnswer(response.answerObj);
     setRecievedResponse(true);
   };
 
@@ -122,7 +123,7 @@ const AssistantChat = () => {
           <Skeleton variant="rectangular" width={"100%"} height={60} />
         )}
 
-        {recievedResponse && <ResponseDisplay answer={answer.answer} />}
+        {recievedResponse && <ResponseDisplay answer={answer} />}
 
         <div className="assistant-chat-input-wrap">
           <form className="assistant-form">

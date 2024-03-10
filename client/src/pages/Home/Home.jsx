@@ -3,69 +3,13 @@ import "./Home.css";
 import SectionHeader from "../../component/SectionHeader/SectionHeader";
 import JobDetails from "../../component/JobDetails/JobDetails";
 import Navbar from "../../component/Navbar/Navbar";
-import FAQ from "../../component/FAQ/FAQ";
 
-import {
-  GoogleGenerativeAI,
-  HarmCategory,
-  HarmBlockThreshold,
-} from "@google/generative-ai";
 import AssistantChat from "../../component/AssistantChat/AssistantChat";
 
 const Home = () => {
-  // const runChat = async () => {
-  //   const API_KEY = "AIzaSyCZCmZayy-SMH7EzmRd4ieaXm6UO12zDwk";
-  //   const MODEL_NAME = "gemini-1.0-pro";
-
-  //   const genAI = new GoogleGenerativeAI(API_KEY);
-  //   const model = genAI.getGenerativeModel({ model: MODEL_NAME });
-
-  //   const generationConfig = {
-  //     temperature: 0.9,
-  //     topK: 1,
-  //     topP: 1,
-  //     maxOutputTokens: 2048,
-  //   };
-
-  //   const safetySettings = [
-  //     {
-  //       category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-  //       threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-  //     },
-  //     {
-  //       category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-  //       threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-  //     },
-  //     {
-  //       category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-  //       threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-  //     },
-  //     {
-  //       category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-  //       threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-  //     },
-  //   ];
-
-  //   const chat = model.startChat({
-  //     generationConfig,
-  //     safetySettings,
-  //     history: [],
-  //   });
-
-  //   const result = await chat.sendMessage("Whats the capital of India");
-  //   const response = result.response;
-  //   console.log(response.text());
-
-  //   const secondResponse = await chat.sendMessage(
-  //     "Can you recommend restaurants there?"
-  //   );
-  //   console.log(secondResponse.response.text());
-  // };
-  // React.useEffect(() => {
-  // runChat();
-  // }, []);
   return (
     <div className="home-wrap">
+      <di className="hue" />
       <Navbar />
       <AssistantChat />
 

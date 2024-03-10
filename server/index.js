@@ -9,7 +9,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT;
+const PORT = process.env.VITE_PORT;
 const dburl = require("./config.js").url;
 
 app.get("/", (req, res) => {
