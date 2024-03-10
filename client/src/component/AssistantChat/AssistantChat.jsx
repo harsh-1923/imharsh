@@ -114,7 +114,39 @@ const AssistantChat = () => {
   }, []);
   return (
     <div className="assistant-wrap">
-      <div className="assistant-chat-section">
+      <div className="assistant-response-wrap">
+        {/* <div className="assistant-logo-wrap"></div> */}
+        <iframe
+          style={{ borderRadius: "12px" }}
+          src="https://open.spotify.com/embed/track/46hzNOUOAlivuCZZ0wE3zi?utm_source=generator"
+          width="100%"
+          height="352"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
+      <div className="assistant-input-wrap">
+        <input
+          className="question-input"
+          placeholder="What music are you listening to right now?"
+          onChange={(e) => handleQuestionChange(e)}
+        />
+        <SendRoundedIcon
+          onClick={(e) => ask(e, question)}
+          fontSize="medium"
+          style={{ paddingTop: "3px" }}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default AssistantChat;
+
+{
+  /* <div className="assistant-chat-section">
         {!firstQuesAsked && <WelcomeBanner />}
 
         {displayQuestion && <QuestionDisplay text={displayQuestion} />}
@@ -141,22 +173,5 @@ const AssistantChat = () => {
             />
           </form>
         </div>
-      </div>
-      {/* <div className="assistant-suggestion-section only-desktop">
-        {suggestions.map((suggestion, i) => {
-          return (
-            <div
-              key={i}
-              onClick={() => ask(suggestion.question)}
-              className="assistant-suggestion"
-            >
-              <p className="basic-text">{suggestion.title}</p>
-            </div>
-          );
-        })}
-      </div> */}
-    </div>
-  );
-};
-
-export default AssistantChat;
+      </div> */
+}
