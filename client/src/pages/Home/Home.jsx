@@ -9,7 +9,7 @@ import AssistantChat from "../../component/AssistantChat/AssistantChat";
 const Home = () => {
   return (
     <div className="home-wrap">
-      <di className="hue" />
+      <div className="hue" />
       <Navbar />
       <AssistantChat />
 

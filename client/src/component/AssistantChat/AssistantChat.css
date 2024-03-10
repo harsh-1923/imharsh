@@ -1,7 +1,7 @@
-.assistant-wrap {
+.assist-wrap {
   width: 100%;
   height: 70vh;
-  padding: 15px;
+  /* padding: 15px; */
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   outline: 1px solid rgba(148, 146, 146, 0.265);
@@ -10,13 +10,52 @@
   align-items: center;
   flex-direction: column;
   z-index: 10;
+  overflow: hidden;
 }
 
-.assistant-response-wrap {
+.assist-response-wrap {
+  position: absolute;
+  top: 0;
   width: 100%;
+  padding: 20px;
+  height: calc(100% - 150px);
+  outline: 1px solid rgba(255, 255, 255, 0.232);
+  display: flex;
 }
 
-.assistant-input-wrap {
+.assist-main {
+  padding: 0px 20px;
+}
+
+.assist-input-wrap {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  height: 40px;
+}
+
+.assist-input-wrap:where([data-state="disabled"]) {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.assist-logo-wrap {
+  width: 30%;
+  /* width: 40px;
+  height: 40px; */
+  /* aspect-ratio: 1; */
+  /* border-radius: 50%; */
+  background-color: rgba(128, 128, 128, 0.14);
+}
+
+.welcome-tag {
+  font-size: clamp(50px, 5vw, 6vw);
+  letter-spacing: -1px;
+  line-height: 0.9;
+  margin-bottom: 20px;
+}
+
+.assist-input-wrap {
   position: absolute;
   bottom: 20px;
   width: calc(100% - 20px);
@@ -38,10 +77,53 @@
   margin-right: 10px;
 }
 
-.assistant-logo-wrap {
-  width: 30%;
+.assist-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  height: 100%;
   aspect-ratio: 1;
-  background-color: red;
   border-radius: 50%;
-  transform-origin: top left;
+}
+
+.assist-button:hover {
+  outline: 1px solid rgba(128, 128, 128, 0.332);
+}
+
+.assist-suggestions-wrap {
+  position: absolute;
+  bottom: 75px;
+  width: 100%;
+  height: 60px;
+  padding: 0px 20px;
+}
+
+.suggestions {
+  /* width: 100%; */
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.assist-suggestion {
+  margin: 0px 10px 0px 0px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  height: 32px;
+  min-width: 50px;
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 8px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.assist-suggestion:hover {
+  opacity: 1;
 }

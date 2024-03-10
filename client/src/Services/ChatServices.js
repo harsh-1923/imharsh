@@ -8,7 +8,6 @@ export default {
     return response.data;
   },
   establishConnection: async (chatID) => {
-    console.log(chatID, "ESt");
     const response = await axios.get(`${API}/establishConnection`, {
       params: chatID,
     });

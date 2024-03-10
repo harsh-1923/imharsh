@@ -5,59 +5,41 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import ChatServices from "../../Services/ChatServices";
 import Skeleton from "@mui/material/Skeleton";
 
-const WelcomeBanner = () => {
+const Suggestions = ({ list }) => {
   return (
-    <div className="assistant-chat-welcome-banner">
-      <h1 className="welcome-tag">
-        Ask me <br /> anything
-      </h1>
-      <p className="basic-text">Would love to have a conversation with you.</p>
+    <div className="suggestions">
+      {list.map((suggestion, index) => {
+        return (
+          <div key={index} className="assist-suggestion">
+            {suggestion.title}
+          </div>
+        );
+      })}
     </div>
   );
 };
 
-const ResponseDisplay = ({ answer }) => {
-  console.log(answer);
-  // console.log(typeof answer);
-  return (
-    <div className="assistant-chat-response-wrap outline">
-      <p className="basic-text">{answer.text}</p>
-    </div>
-  );
-};
-
-const QuestionDisplay = ({ text }) => {
+const QuestionDisplay = ({ question }) => {
   return (
     <div>
-      <p>{text}</p>
+      <p className="basic-text">{question}</p>
     </div>
   );
 };
 
 const AssistantChat = () => {
-  console.log("Rendering");
   const [isLoading, setIsLoading] = useState(true);
   const [firstQuesAsked, setFirstQuesAsked] = useState(false);
   const [question, setQuestion] = useState();
+  const [displayQuestion, setDisplayQUestion] = useState("");
   const [answer, setAnswer] = useState();
   const [fetchingRes, setFetchingRes] = useState(false);
-  const [displayQuestion, setDisplayQuestion] = useState();
-  const [recievedResponse, setRecievedResponse] = useState(false);
   const suggestions = [
     { question: "Tell me something about yourself", title: "Surprise me!" },
     { question: "Where did you graduate from?", title: "Education" },
     { question: "What are your skills", title: "Skills" },
     { question: "Tell me about your experience", title: "Experience" },
     { question: "Tell me about your hobbies", title: "Hobbies" },
-    { question: "Where do you live?", title: "Location" },
-    { question: "What are your skills", title: "Skills" },
-    { question: "Tell me about your experience", title: "Experience" },
-    { question: "Tell me about your hobbies", title: "Hobbies" },
-    { question: "Where do you live?", title: "Location" },
-    { question: "What are your skills", title: "Skills" },
-    { question: "Tell me about your experience", title: "Experience" },
-    { question: "Tell me about your hobbies", title: "Hobbies" },
-    { question: "Where do you live?", title: "Location" },
   ];
 
   const handleQuestionChange = (e) => {
@@ -65,27 +47,66 @@ const AssistantChat = () => {
     setQuestion(e.target.value);
   };
 
-  const ask = async (e, question) => {
-    e.preventDefault();
-    setRecievedResponse(false);
+  const animateView = () => {
+    console.log(firstQuesAsked);
+    if (firstQuesAsked === true) return;
+
+    gsap.to(
+      ".assist-logo-wrap",
+      {
+        width: "40px",
+        height: "40px",
+        borderRadius: "50%",
+        duration: 1,
+        ease: "power1.out",
+      },
+      "s"
+    );
+
+    gsap.to(
+      ".assist-main",
+      {
+        width: "100%",
+        duration: 1,
+        ease: "power1.out",
+        onComplete: () => {
+          gsap.to(".assistant-welcome-banner", {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power1.out",
+            onComplete: () => {},
+          });
+        },
+      },
+      "s"
+    );
+
     setFirstQuesAsked(true);
+  };
+
+  const ask = async (e, question) => {
+    console.log("Clicked ask");
+    animateView();
+    if (question == null || question == "") return;
     setFetchingRes(true);
-    setDisplayQuestion(question);
-    //change the banner
-    //flush the previous response
-    if (!question || question === "") return;
-    const chatID = localStorage.getItem("chatID");
+    setDisplayQUestion(question);
+    // document.getElementsByClassName("question-input").set;
+    var chatID = localStorage.getItem("chatID");
     if (!chatID) {
-      alert("Encountered a problem. Fixing it");
+      alert("Encountered a problem.Fixing it");
       await initChat();
+      chatID = localStorage.getItem("chatID");
+    }
+
+    if (!chatID) {
+      alert("Encountered a problem. Please retry");
+      return;
     }
     const details = { chatID, question };
     const response = await ChatServices.ask(details);
     console.log(response.answerObj);
-
     setFetchingRes(false);
     setAnswer(response.answerObj);
-    setRecievedResponse(true);
   };
 
   const newChat = async (chat) => {
@@ -102,7 +123,6 @@ const AssistantChat = () => {
     }
 
     const connection = await ChatServices.establishConnection({ chatID });
-    console.log(connection);
     if (connection.error === true) {
       newChat();
     }
@@ -112,66 +132,53 @@ const AssistantChat = () => {
     init();
     setIsLoading(false);
   }, []);
+
   return (
-    <div className="assistant-wrap">
-      <div className="assistant-response-wrap">
-        {/* <div className="assistant-logo-wrap"></div> */}
-        <iframe
-          style={{ borderRadius: "12px" }}
-          src="https://open.spotify.com/embed/track/46hzNOUOAlivuCZZ0wE3zi?utm_source=generator"
-          width="100%"
-          height="352"
-          frameBorder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
+    <div className="assist-wrap">
+      <div className="assist-response-wrap">
+        <div className="assist-logo-wrap"></div>
+        <div className="assist-main">
+          {firstQuesAsked ? (
+            <>
+              <QuestionDisplay question={displayQuestion} />
+
+              {answer ? <p>{answer.text}</p> : <Skeleton />}
+            </>
+          ) : (
+            <>
+              <div className="assistant-welcome-banner">
+                <h1 className="welcome-tag">
+                  Ask me <br /> anything
+                </h1>
+                <p className="basic-text">Built with Human Intelligence</p>
+                <p className="basic-text">Powered by Artificial Intelligence</p>
+              </div>
+            </>
+          )}
+        </div>
       </div>
-      <div className="assistant-input-wrap">
+      <div className="assist-suggestions-wrap">
+        {!fetchingRes && <Suggestions list={suggestions} />}
+      </div>
+      <div
+        data-state={`${fetchingRes ? "disabled" : "enabled"}`}
+        className="assist-input-wrap"
+      >
         <input
           className="question-input"
           placeholder="What music are you listening to right now?"
           onChange={(e) => handleQuestionChange(e)}
         />
-        <SendRoundedIcon
-          onClick={(e) => ask(e, question)}
-          fontSize="medium"
-          style={{ paddingTop: "3px" }}
-        />
+        <div className="assist-button">
+          <SendRoundedIcon
+            onClick={(e) => ask(e, question)}
+            fontSize="small"
+            style={{ paddingLeft: "2px" }}
+          />
+        </div>
       </div>
     </div>
   );
 };
 
 export default AssistantChat;
-
-{
-  /* <div className="assistant-chat-section">
-        {!firstQuesAsked && <WelcomeBanner />}
-
-        {displayQuestion && <QuestionDisplay text={displayQuestion} />}
-
-        {fetchingRes && (
-          <Skeleton variant="rectangular" width={"100%"} height={60} />
-        )}
-
-        {recievedResponse && <ResponseDisplay answer={answer} />}
-
-        <div className="assistant-chat-input-wrap">
-          <form className="assistant-form">
-            <input
-              onSubmit={(e) => ask(e, question)}
-              onChange={(e) => handleQuestionChange(e)}
-              type="text"
-              className="assistant-chat-input"
-              placeholder="Text Harsh"
-            ></input>
-            <SendRoundedIcon
-              onClick={(e) => ask(e, question)}
-              fontSize="medium"
-              style={{ paddingTop: "3px" }}
-            />
-          </form>
-        </div>
-      </div> */
-}
