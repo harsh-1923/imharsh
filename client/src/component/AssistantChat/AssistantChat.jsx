@@ -5,12 +5,17 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import ChatServices from "../../Services/ChatServices";
 import Skeleton from "@mui/material/Skeleton";
 
-const Suggestions = ({ list }) => {
+const Suggestions = ({ handler, list }) => {
+  console.log(handler);
   return (
     <div className="suggestions">
       {list.map((suggestion, index) => {
         return (
-          <div key={index} className="assist-suggestion">
+          <div
+            onClick={() => handler(suggestion.question)}
+            key={index}
+            className="assist-suggestion"
+          >
             {suggestion.title}
           </div>
         );
@@ -20,8 +25,34 @@ const Suggestions = ({ list }) => {
 };
 
 const QuestionDisplay = ({ question }) => {
+  // const [questionToDisplay, setQuestionToDisplay] = useState("");
+  // useEffect(() => {
+  //   let interval;
+
+  //   const animateQuestion = () => {
+  //     const words = question.split(" ");
+  //     let index = 0;
+  //     interval = setInterval(() => {
+  //       if (index < words.length) {
+  //         setQuestionToDisplay(
+  //           (prevQuestion) =>
+  //             prevQuestion + (prevQuestion ? " " : "") + words[index]
+  //         );
+  //         index++;
+  //       } else {
+  //         clearInterval(interval);
+  //       }
+  //     }, 1000); // Adjust the interval as needed (milliseconds)
+  //   };
+
+  //   animateQuestion();
+
+  //   // Clean up the interval on unmount
+  //   return () => clearInterval(interval);
+  // }, [question]);
+
   return (
-    <div>
+    <div className="question">
       <p className="basic-text">{question}</p>
     </div>
   );
@@ -39,7 +70,8 @@ const AssistantChat = () => {
     { question: "Where did you graduate from?", title: "Education" },
     { question: "What are your skills", title: "Skills" },
     { question: "Tell me about your experience", title: "Experience" },
-    { question: "Tell me about your hobbies", title: "Hobbies" },
+    { question: "Tell me about your experience", title: "Experience" },
+    { question: "Tell me about your experience", title: "Experience" },
   ];
 
   const handleQuestionChange = (e) => {
@@ -54,8 +86,8 @@ const AssistantChat = () => {
     gsap.to(
       ".assist-logo-wrap",
       {
-        width: "40px",
-        height: "40px",
+        width: "20px",
+        height: "20px",
         borderRadius: "50%",
         duration: 1,
         ease: "power1.out",
@@ -84,13 +116,41 @@ const AssistantChat = () => {
     setFirstQuesAsked(true);
   };
 
-  const ask = async (e, question) => {
-    console.log("Clicked ask");
+  const askSuggestedQuestion = async (askedQuestion) => {
+    if (askedQuestion === null) return;
+    setAnswer(null);
+
+    if (firstQuesAsked === false) animateView();
+    setDisplayQUestion(askedQuestion);
+    setFetchingRes(true);
+
+    var chatID = localStorage.getItem("chatID");
+    if (!chatID) {
+      alert("Encountered a problem.Fixing it");
+      await initChat();
+      chatID = localStorage.getItem("chatID");
+    }
+
+    if (!chatID) {
+      alert("Encountered a problem. Please retry");
+      return;
+    }
+    const details = { chatID, question: askedQuestion };
+    const response = await ChatServices.ask(details);
+    console.log(response.answerObj);
+    setFetchingRes(false);
+    setAnswer(response.answerObj);
+  };
+
+  const ask = async (e, askedQuestion) => {
+    setAnswer(null);
     animateView();
+    if (askedQuestion) {
+      setQuestion(askedQuestion);
+    }
     if (question == null || question == "") return;
     setFetchingRes(true);
     setDisplayQUestion(question);
-    // document.getElementsByClassName("question-input").set;
     var chatID = localStorage.getItem("chatID");
     if (!chatID) {
       alert("Encountered a problem.Fixing it");
@@ -157,9 +217,22 @@ const AssistantChat = () => {
           )}
         </div>
       </div>
-      <div className="assist-suggestions-wrap">
-        {!fetchingRes && <Suggestions list={suggestions} />}
-      </div>
+
+      {!fetchingRes && (
+        <div className="assist-suggestions-wrap">
+          {suggestions.map((suggestion, index) => {
+            return (
+              <div
+                onClick={() => askSuggestedQuestion(suggestion.question)}
+                key={index}
+                className="assist-suggestion"
+              >
+                {suggestion.title}
+              </div>
+            );
+          })}
+        </div>
+      )}
       <div
         data-state={`${fetchingRes ? "disabled" : "enabled"}`}
         className="assist-input-wrap"
@@ -171,7 +244,7 @@ const AssistantChat = () => {
         />
         <div className="assist-button">
           <SendRoundedIcon
-            onClick={(e) => ask(e, question)}
+            onClick={(e) => ask(e)}
             fontSize="small"
             style={{ paddingLeft: "2px" }}
           />

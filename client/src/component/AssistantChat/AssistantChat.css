@@ -4,7 +4,7 @@
   /* padding: 15px; */
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  outline: 1px solid rgba(148, 146, 146, 0.265);
+  /* outline: 1px solid rgba(148, 146, 146, 0.265); */
   position: relative;
   display: flex;
   align-items: center;
@@ -19,12 +19,14 @@
   width: 100%;
   padding: 20px;
   height: calc(100% - 150px);
-  outline: 1px solid rgba(255, 255, 255, 0.232);
+  /* outline: 1px solid rgba(255, 255, 255, 0.232); */
   display: flex;
+  overflow-x: scroll;
 }
 
 .assist-main {
   padding: 0px 20px;
+  overscroll-behavior-y: scroll;
 }
 
 .assist-input-wrap {
@@ -94,36 +96,42 @@
 
 .assist-suggestions-wrap {
   position: absolute;
+  left: 0;
   bottom: 75px;
   width: 100%;
   height: 60px;
   padding: 0px 20px;
-}
-
-.suggestions {
-  /* width: 100%; */
-  min-width: 100%;
-  height: 100%;
   display: flex;
-  align-items: center;
-  overflow-y: scroll;
+  overflow-x: auto;
+  overscroll-behavior: scoll !important;
+  min-width: calc(100% + 60px);
+  padding-right: 50vw;
 }
 
 .assist-suggestion {
   margin: 0px 10px 0px 0px;
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
-  height: 32px;
-  min-width: 50px;
-  display: flex;
+  /* height: 40px; */
+  /* width: auto; */
+  height: 40px;
+  min-width: 70px;
+  font-size: 12px;
+  width: auto;
+  padding: 0px 10px;
   border-radius: 8px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px 8px;
+  /* padding: 10px 8px; */
   cursor: pointer;
   opacity: 0.8;
 }
 
 .assist-suggestion:hover {
   opacity: 1;
+}
+
+.question {
+  padding-bottom: 20px;
 }
