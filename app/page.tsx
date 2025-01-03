@@ -8,8 +8,8 @@ import Underline from "@/components/Underline";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 items-center justify-center px-4 pb-20 gap-16 font-[family-name:var(--font-geist-sans)]">
-      <main className="w-full max-w-[900px]">
+    <main className="flex flex-1 items-center justify-center px-4 pb-20 gap-16 font-[family-name:var(--font-geist-sans)] pt-[80px]">
+      <div className="w-full max-w-[900px]">
         <div className="flex items-center justify-center relative">
           <HeroBanner />
         </div>
@@ -37,7 +37,10 @@ export default function Home() {
             <Socials />
           </div>
         </div>
-      </main>
-    </div>
+        <div className="w-full h-screen"></div>
+        <div className="w-full h-screen"></div>
+        <div className="w-full h-screen"></div>
+      </div>
+    </main>
   );
 }
