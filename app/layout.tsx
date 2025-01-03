@@ -4,9 +4,11 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import "./common.css";
 import { AppProvider } from "@/context/AppContext";
-import Sign from "@/components/Sign/Sign";
+
 import HeadTags from "@/components/Head";
-import Link from "next/link";
+
+import Underlay from "@/components/Underlay/Underlay";
+import Navbar from "@/components/Navbar/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,12 +49,12 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${funnelDisplay.variable} antialiased`}
         >
-          <nav className="max-w-[900px] w-screen p-4 mx-auto">
-            <Link href="/">
-              <Sign />
-            </Link>
-          </nav>
-          {children}
+          <Underlay />
+          <main className="w-full rounded-t-3xl max-w-[1000px] mx-auto">
+            <Navbar />
+
+            {children}
+          </main>
         </body>
         <Analytics />
       </AppProvider>
