@@ -1,3 +1,7 @@
+.toaster {
+  background-image: red;
+}
+
 .hero-header {
   font-size: clamp(38px, 6vw, 92px);
 }
