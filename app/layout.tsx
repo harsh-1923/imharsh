@@ -9,6 +9,7 @@ import HeadTags from "@/components/Head";
 
 import Underlay from "@/components/Underlay/Underlay";
 import Navbar from "@/components/Navbar/Navbar";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,6 +47,7 @@ export default function RootLayout({
     <html lang="en">
       <AppProvider>
         <HeadTags />
+        <Toaster />
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${funnelDisplay.variable} antialiased`}
         >
