@@ -1,0 +1,54 @@
+.circle {
+  animation: rotateCircle 3s linear infinite;
+}
+
+@keyframes rotateCircle {
+  /* to {
+    transform: rotate(180deg);
+  } */
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #666;
+  border-radius: 50%;
+  position: relative;
+  transform-origin: right;
+  animation: rev 5s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes rev {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.circle .ball {
+  width: 24px;
+  height: 24px;
+  background: dodgerblue;
+  border-radius: 50%;
+  offset-path: content-box;
+  offset-distance: 0%;
+  position: absolute;
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.cameo {
+  animation: revolute var(--duration) linear infinite forwards;
+  animation-delay: var(--index);
+}
+
+@keyframes revolute {
+  to {
+    transform: rotateY(360deg);
+  }
+}

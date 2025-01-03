@@ -1,31 +1,5 @@
-.underline-footer {
-  stroke-dasharray: 200;
-  stroke-dashoffset: 40;
-  /* animation: underline 2s ease-in; */
-}
-/* @keyframes underline {
-  from {
-    stroke-dashoffset: 0;
-    stroke-dasharray: 0;
-  }
-} */
-
-.signature {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 0;
-  animation: sign 2.4s ease-out;
-  transform: rotate(23deg);
-  stroke: red;
-}
-
-@keyframes sign {
-  from {
-    stroke-dashoffset: 1000;
-  }
-}
-
 .hero-header {
-  font-size: clamp(42px, 6vw, 100px);
+  font-size: clamp(38px, 6vw, 92px);
 }
 
 .shimmer-effect {

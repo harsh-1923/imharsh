@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Funnel_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import "./common.css";
-import { Footer } from "@/components/Footer";
+import { AppProvider } from "@/context/AppContext";
+import Sign from "@/components/Sign/Sign";
+import HeadTags from "@/components/Head";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,12 +42,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${funnelDisplay.variable} antialiased`}
-      >
-        {children}
-        <Footer />
-      </body>
+      <AppProvider>
+        <HeadTags />
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${funnelDisplay.variable} antialiased`}
+        >
+          <nav className="max-w-[900px] w-screen p-4 mx-auto">
+            <Link href="/">
+              <Sign />
+            </Link>
+          </nav>
+          {children}
+        </body>
+        <Analytics />
+      </AppProvider>
     </html>
   );
 }
