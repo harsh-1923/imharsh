@@ -18,7 +18,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-use-measure": "^2.1.1",
-    "sonner": "^1.7.1"
+    "sonner": "^1.7.1",
+    "sugar-high": "^0.7.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

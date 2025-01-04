@@ -10,6 +10,7 @@ import { toast } from "sonner";
 const Navbar = () => {
   // const { isUnderlayOpen, setIsUnderlayOpen } = useAppContext();
   const pathname = usePathname();
+
   return (
     <nav className="w-screen fixed left-0 top-0 z-30">
       <div className="gradient-blur">
@@ -54,7 +55,7 @@ const Navbar = () => {
                 : "dark:text-neutral-400 text-neutral-500"
             }`}
           >
-            Writings
+            Writing
           </button>
         </div>
       </div>
