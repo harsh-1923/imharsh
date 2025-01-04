@@ -1,0 +1,8 @@
+.notfound-header {
+  font-size: clamp(100px, 20vw, 160px);
+  --text-gradient: linear-gradient(to bottom, #6f6f6f, white);
+  background: var(--text-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

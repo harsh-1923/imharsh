@@ -1,0 +1,38 @@
+/* .circle .ball {
+  width: 24px;
+  height: 24px;
+  background: dodgerblue;
+  border-radius: 50%;
+  offset-path: content-box;
+  offset-distance: 0%;
+  position: absolute;
+  animation: animate 5s linear infinite;
+} */
+
+.cameo {
+  animation: revolute var(--duration) linear infinite forwards;
+  animation-delay: var(--index);
+}
+
+@keyframes revolute {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.ball {
+  width: 24px;
+  height: 24px;
+  background: dodgerblue;
+  border-radius: 50%;
+  offset-path: content-box;
+  offset-distance: 0%;
+  position: absolute;
+  animation: animate 5s linear infinite forwards;
+}
+
+@keyframes animate {
+  to {
+    offset-distance: 100%;
+  }
+}
