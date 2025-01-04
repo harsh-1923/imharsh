@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react";
-import "./globe.css";
+import "./Globe.css";
 
 const Globe = () => {
   // How many horizontal lines you want
