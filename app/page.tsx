@@ -5,26 +5,6 @@ import CurrentTime from "@/components/CurrentTime";
 import Socials from "@/components/Socials";
 import Link from "next/link";
 import Underline from "@/components/Underline";
-import CodeBlock from "@/components/CodeBlock";
-
-const block = `  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(codeString);
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-    }
-  };
-
-  const handleDoubleClick = useCallback(() => {
-    const selection = window.getSelection();
-    if (selection && selection.toString().trim() !== "") {
-      setSelectedWord(selection.toString().trim());
-    } else {
-      setSelectedWord(null);
-    }
-  }, []);`;
 
 export default function Home() {
   return (
@@ -57,8 +37,6 @@ export default function Home() {
             <Socials />
           </div>
         </div>
-        <CodeBlock codeString={block} fileName="page.tsx" />
-        <div className="w-full h-screen"></div>
         <div className="w-full h-screen"></div>
       </div>
     </main>
