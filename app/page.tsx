@@ -17,7 +17,7 @@ export default function Home() {
           <CurrentTime />
           <WindowDimensions />
         </div>
-        <h1 className="font-[family-name:var(--font-funnel-display)] text-4xl font-medium mt-[40px] sm:text-7xl hero-header">
+        <h1 className="font-[family-name:var(--font-funnel-display)] font-medium mt-[40px] hero-header tracking-tight">
           Software Engineer
         </h1>
         <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mt-8">
