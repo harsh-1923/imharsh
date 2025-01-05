@@ -52,7 +52,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} ${funnelDisplay.variable} antialiased`}
         >
           <Underlay />
-          <main className="w-full rounded-t-3xl max-w-[1000px] mx-auto">
+          <main className="w-full rounded-t-3xl max-w-[900px] mx-auto">
             <Navbar />
 
             {children}

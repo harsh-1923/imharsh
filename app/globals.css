@@ -188,6 +188,11 @@ body {
   --colors-grid: var(--colors-gray8);
 }
 
+:focus-visible {
+  outline: 1px solid var(--colors-focus);
+  outline-offset: 1px;
+}
+
 /* =====================
    Dark Mode Variables
    ===================== */
