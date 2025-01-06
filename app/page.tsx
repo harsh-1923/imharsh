@@ -5,6 +5,28 @@ import CurrentTime from "@/components/CurrentTime";
 import Socials from "@/components/Socials";
 import Link from "next/link";
 import Underline from "@/components/Underline";
+import { Timeline } from "@/components/Timeline/Timeline";
+
+const experiences = [
+  {
+    startDate: "6/20",
+    endDate: "12/21",
+    company: "Tech Startup Inc.",
+    role: "Junior jh Developer",
+  },
+  {
+    startDate: "1/22",
+    endDate: "6/23",
+    company: "Big Tech Corp",
+    role: "Software Engineer",
+  },
+  {
+    startDate: "7/23",
+    endDate: "12/24",
+    company: "AI Innovations Ltd",
+    role: "Senior AI Engineer",
+  },
+];
 
 export default function Home() {
   return (
@@ -37,6 +59,12 @@ export default function Home() {
             <Socials />
           </div>
         </div>
+        <Timeline
+          start="1/20"
+          end="12/24"
+          className="mb-2"
+          experiences={experiences}
+        />
         <div className="w-full h-screen"></div>
       </div>
     </main>
