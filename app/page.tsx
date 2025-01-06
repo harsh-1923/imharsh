@@ -5,7 +5,7 @@ import CurrentTime from "@/components/CurrentTime";
 import Socials from "@/components/Socials";
 import Link from "next/link";
 import Underline from "@/components/Underline";
-import { Timeline } from "@/components/Timeline/Timeline";
+// import { Timeline } from "@/components/Timeline/Timeline";
 
 const experiences = [
   {
@@ -59,12 +59,12 @@ export default function Home() {
             <Socials />
           </div>
         </div>
-        <Timeline
+        {/* <Timeline
           start="1/20"
           end="12/24"
           className="mb-2"
           experiences={experiences}
-        />
+        /> */}
         <div className="w-full h-screen"></div>
       </div>
     </main>
