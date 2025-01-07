@@ -62,23 +62,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 
   return (
     <div className="border-[1px] border-[var(--colors-grayA6)] rounded-lg overflow-x-auto  text-sm my-6 relative">
-      <AnimatePresence initial={false} mode="wait">
-        <motion.button
-          key={isCopied ? "check" : "copy"}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="absolute top-1 right-1 p-2 rounded-md"
-          onClick={copyToClipboard}
-        >
-          {isCopied ? (
-            <Check size={14} className="dark:text-green-500 text-green-600" />
-          ) : (
-            <Copy size={14} className="dark:text-gray-500 text-gray-600" />
-          )}
-        </motion.button>
-      </AnimatePresence>
+      <CopyButton copyToClipboard={copyToClipboard} isCopied={isCopied} />
       {fileName && (
         <div className="w-full h-10 flex items-center px-4 dark:bg-[#212121] bg-neutral-200 justify-start gap-2">
           {icon}
@@ -96,6 +80,34 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         />
       </pre>
     </div>
+  );
+};
+
+const CopyButton = ({
+  isCopied,
+  copyToClipboard,
+}: {
+  isCopied: boolean;
+  copyToClipboard: () => void;
+}) => {
+  return (
+    <AnimatePresence initial={false} mode="wait">
+      <motion.button
+        key={isCopied ? "check" : "copy"}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="absolute top-1 right-1 p-2 rounded-md"
+        onClick={copyToClipboard}
+      >
+        {isCopied ? (
+          <Check size={14} className="dark:text-green-500 text-green-600" />
+        ) : (
+          <Copy size={14} className="dark:text-gray-500 text-gray-600" />
+        )}
+      </motion.button>
+    </AnimatePresence>
   );
 };
 
