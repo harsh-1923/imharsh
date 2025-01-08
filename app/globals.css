@@ -7,6 +7,15 @@
   --foreground: #171717;
 }
 
+pre > code {
+  font-family: var(--font-geist-mono);
+}
+
+* {
+  scrollbar-color: var(--colors-gray10) transparent;
+  scrollbar-width: thin;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
