@@ -99,6 +99,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   const [selectedWord, setSelectedWord] = React.useState<string | null>(null);
   const codeRef = React.useRef<HTMLPreElement>(null);
   const minimapRef = React.useRef<HTMLDivElement>(null);
+  const minimapCodeRef = React.useRef<HTMLPreElement>(null);
 
   const [minimapState, dispatch] = React.useReducer(
     minimapReducer,
@@ -107,16 +108,19 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 
   const calculateMinimapMetrics = useCallback((): MinimapMetrics | null => {
     const codeElement = codeRef.current;
-    if (!codeElement) return null;
+    const minimapCodeElement = minimapCodeRef.current;
+    if (!codeElement || !minimapCodeElement) return null;
 
     const containerHeight = codeElement.clientHeight;
     const scrollHeight = codeElement.scrollHeight;
     const scrollTop = codeElement.scrollTop;
 
-    console.log(containerHeight, scrollHeight, scrollTop);
-
+    // Get the actual height of the scaled code in the minimap
+    const minimapCodeHeight = minimapCodeElement.scrollHeight * 0.4; // 0.4 is the scale factor
     const visibleRatio = containerHeight / scrollHeight;
-    const minimapHeight = Math.max(30, containerHeight * visibleRatio);
+
+    // Calculate minimap highlight height based on the scaled code height
+    const minimapHeight = Math.max(30, minimapCodeHeight * visibleRatio);
     const scrollRatio = scrollTop / (scrollHeight - containerHeight);
 
     return {
@@ -229,22 +233,32 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     };
   }, [showMinimap, minimapState.isDragging, updateMinimapMetrics]);
 
+  const getMinimapHighlightTop = useCallback(() => {
+    const minimapCodeElement = minimapCodeRef.current;
+    if (!minimapCodeElement) return 0;
+
+    const scaledCodeHeight = minimapCodeElement.scrollHeight * 0.4;
+    return (
+      minimapState.scrollRatio * (scaledCodeHeight - minimapState.minimapHeight)
+    );
+  }, [minimapState.scrollRatio, minimapState.minimapHeight]);
+
   const highlightedCodeHTML = selectedWord
     ? highlightOccurrences(codeHTML, selectedWord)
     : codeHTML;
 
   return (
-    <div className="border-[1px] border-[var(--colors-grayA6)] rounded-lg overflow-hidden text-sm my-6 relative">
+    <div className="border-[1px] border-[var(--colors-grayA6)] rounded-lg overflow-hidden text-sm my-6 relative bg-[var(--code-background)]">
       <CopyButton copyToClipboard={copyToClipboard} isCopied={isCopied} />
       {fileName && (
-        <div className="w-full h-10 flex items-center px-4 dark:bg-[#212121] bg-neutral-200 justify-start gap-2">
+        <div className="w-full h-10 flex items-center px-4 dark:bg-[var(--colors-gray4)] bg-neutral-200 justify-start gap-2">
           {icon}
           {fileName}
         </div>
       )}
       <div className="relative flex max-h-[400px]">
         <pre
-          className={`code-block p-4 overflow-auto max-h-[400px] font-[family-name:var(--font-geist-mono)] flex-grow`}
+          className="code-block p-4 overflow-auto max-h-[400px] font-[family-name:var(--font-geist-mono)] flex-grow"
           ref={codeRef}
           onDoubleClick={handleDoubleClick}
         >
@@ -256,12 +270,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         {showMinimap && (
           <div
             ref={minimapRef}
-            className="w-20 border-l border-[var(--colors-grayA6)] dark:bg-[#1a1a1a] bg-neutral-100 relative cursor-pointer max-h-[400px] overflow-hidden"
+            className="w-20 absolute top-0 right-0 bottom-0 border-l border-[var(--colors-grayA6)] dark:bg-[#1a1a1aa9] bg-neutral-100 cursor-pointer max-h-[400px] overflow-hidden shadow-lg"
             onClick={handleMinimapDrag}
           >
-            <div className="absolute inset-0 opacity-40 select-none pointer-events-none scale-x-100">
+            <div className="absolute inset-0 select-none pointer-events-none">
               <pre
-                className="transform scale-[0.3] origin-top-left whitespace-pre text-[4px] font-[family-name:var(--font-geist-mono)] leading-[6px] p-2"
+                ref={minimapCodeRef}
+                className="transform scale-[0.4] origin-top-left whitespace-pre text-[4px] font-[family-name:var(--font-geist-mono)] leading-[6px] p-2"
                 style={{
                   WebkitTransform: "scale(0.4)",
                   WebkitTransformOrigin: "top left",
@@ -276,10 +291,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
               className="absolute right-0 w-full bg-blue-500/20 cursor-pointer"
               style={{
                 height: `${minimapState.minimapHeight}px`,
-                top: `${
-                  minimapState.scrollRatio *
-                  (100 - minimapState.visibleRatio * 100)
-                }%`,
+                top: `${getMinimapHighlightTop()}px`,
               }}
               onMouseDown={handleMinimapDrag}
             />

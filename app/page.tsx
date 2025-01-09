@@ -38,7 +38,7 @@ interface ScrollState {
   isAtStart: boolean;
 }
 
-export function useScrollObserver(ref: RefObject<HTMLElement>): ScrollState {
+export function useScrollObserver(ref: RefObject<HTMLElement>): ScrollState { 
   const [isScrolling, setIsScrolling] = useState(false);
   const [scrollAmount, setScrollAmount] = useState(0);
   const [isUserScrolling, setIsUserScrolling] = useState(false);

@@ -13,7 +13,7 @@ pre > code {
 
 * {
   scrollbar-color: var(--colors-gray10) transparent;
-  scrollbar-width: thin;
+  scrollbar-width: thin !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,6 +86,8 @@ body {
 
 :root {
   --background-color: #111110;
+
+  --code-background: hsl(0 0% 11%);
   --colors-gray1: hsl(0 0% 99%);
   --colors-gray2: hsl(0 0% 97.3%);
   --colors-gray3: hsl(0 0% 95.1%);
