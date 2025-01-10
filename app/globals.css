@@ -5,6 +5,9 @@
 :root {
   --background: ##fdfdfc;
   --foreground: #171717;
+
+  --navbar-height: 120px;
+  --text-secondary: var(--colors-gray10);
 }
 
 pre > code {
@@ -16,10 +19,15 @@ pre > code {
   scrollbar-width: thin !important;
 }
 
+button {
+  cursor: pointer !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --text-secondary: var(--colors-gray10);
   }
 }
 
