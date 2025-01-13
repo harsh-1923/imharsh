@@ -16,6 +16,11 @@ pre > code {
   scrollbar-width: thin !important;
 }
 
+button:focus-visible {
+  outline: 1px solid var(--colors-focus);
+  outline-offset: 1px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -86,6 +91,8 @@ body {
 
 :root {
   --background-color: #111110;
+  --navbar-height: 120px;
+  --text-secondary: var(--colors-gray10);
 
   --code-background: hsl(0 0% 11%);
   --colors-gray1: hsl(0 0% 99%);

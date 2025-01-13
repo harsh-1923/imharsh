@@ -123,12 +123,6 @@ export function Timeline({
     }
   };
 
-  //   const handleMouseLeave = () => {
-  //     // setHoveredMonth(null);
-  //     setActivePosition(null);
-  //     setActiveExperience(null);
-  //   };
-
   return (
     <div
       className={`relative h-[400px] w-full select-none debug pb-10 cursor-none ${className}`}
