@@ -1,0 +1,58 @@
+.ms-menu {
+  --gap-xs: 8px;
+  --gap-md: 16px;
+  --gap-xl: 32px;
+  --gap-xxl: 48px;
+  --page-max-width: 900px;
+  --page-mobile-padding: var(--gap-md);
+  position: absolute;
+  background-color: #212121;
+  width: 220px;
+  /* top: 260px; */
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  -webkit-box-shadow: -1px 1px 39px 16px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: -1px 1px 39px 16px rgba(0, 0, 0, 0.45);
+  box-shadow: -1px 1px 39px 16px rgba(0, 0, 0, 0.45);
+  border-radius: var(--gap-md);
+  overflow: hidden;
+
+  background: rgba(39, 39, 39, 0.9);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  cursor: not-allowed;
+}
+
+.ms-menu-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap-xs) var(--gap-md);
+  cursor: disabled;
+}
+
+.ms-menu-divider {
+  width: 100%;
+  height: var(--gap-md);
+  background-color: #212121;
+}
+
+.ms-menu-option > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ms-menu-option + .ms-menu-option {
+  border-top: 1px solid #464648;
+}
+
+.ms-menu-divider + .ms-menu-option {
+  border: none;
+}

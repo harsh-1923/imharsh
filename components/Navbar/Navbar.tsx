@@ -38,7 +38,7 @@ const Navbar = () => {
           <button
             onClick={() => toast("In Progress")}
             // href="/craft"
-            className={`font-[family-name:var(--font-geist-mono)] text-sm font-medium hover:text-[var(--foreground)] transition-colors dura ${
+            className={`font-[family-name:var(--font-geist-mono)] bg-blend-difference text-sm font-medium hover:text-[var(--foreground)] transition-colors dura ${
               pathname === "/craft"
                 ? "text-[var(--foreground)]"
                 : "dark:text-neutral-400 text-neutral-500"
@@ -49,7 +49,7 @@ const Navbar = () => {
           <button
             onClick={() => toast("In Progress")}
             // href="/writing"
-            className={`font-[family-name:var(--font-geist-mono)] text-sm font-medium hover:text-[var(--foreground)] transition-colors dura ${
+            className={`font-[family-name:var(--font-geist-mono)] bg-blend-difference text-sm font-medium hover:text-[var(--foreground)] transition-colors dura ${
               pathname === "/writing"
                 ? "text-[var(--foreground)]"
                 : "dark:text-neutral-400 text-neutral-500"
