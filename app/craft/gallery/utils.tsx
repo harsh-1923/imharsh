@@ -13,7 +13,7 @@ export interface UnsplashImage {
 async function fetchUnsplashImages(totalCount = 100): Promise<UnsplashImage[]> {
   const accessKey = "hJ-9mHjz40Lk4EfmFt_kzbFqKF1QMAu4-KvXVSH21Ts";
   const maxPerRequest = 30;
-  let allImages: UnsplashImage[] = [];
+  const allImages: UnsplashImage[] = [];
 
   try {
     while (allImages.length < totalCount) {

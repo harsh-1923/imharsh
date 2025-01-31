@@ -16,6 +16,7 @@ import {
   Map,
   SquarePlay,
 } from "lucide-react";
+import Image from "next/image";
 
 const GalleryPage: React.FC = () => {
   const [selecting, setIsSelecting] = useState<boolean>(true);
@@ -25,8 +26,7 @@ const GalleryPage: React.FC = () => {
   const isLongPress = React.useRef<boolean>(false);
   const ctrRef = React.useRef<HTMLDivElement>(null);
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const [longPressedImage, setLongPressedImage] =
-    useState<UnsplashImage | null>(null);
+  const [, setLongPressedImage] = useState<UnsplashImage | null>(null);
   const [menuPosition, setMenuPosition] = useState({
     x: 0,
     y: 0,
@@ -89,9 +89,9 @@ const GalleryPage: React.FC = () => {
     const imageRect = target.getBoundingClientRect();
 
     // Calculate position relative to the container
-    let x = imageRect.left - containerRect.left;
+    const x = imageRect.left - containerRect.left;
     let y = imageRect.top - containerRect.top;
-    let menuBottom = imageRect.bottom + MENU_HEIGHT + MENU_MARGIN;
+    const menuBottom = imageRect.bottom + MENU_HEIGHT + MENU_MARGIN;
     console.log({
       menuBottom,
       window: window.innerHeight,
@@ -154,9 +154,9 @@ const GalleryPage: React.FC = () => {
 
   return (
     <div className="mt-[var(--navbar-height)]">
-      {/* <CraftHeader title="Gallery" date="Jan 2025" /> */}
+      <CraftHeader title="Gallery" date="Jan 2025" />
 
-      {/* <div className="p-4">
+      <div className="p-4">
         <button
           onClick={toggleSelecting}
           className={`px-4 py-2 rounded font-semibold text-white ${
@@ -169,7 +169,7 @@ const GalleryPage: React.FC = () => {
         <p className="mt-2 text-gray-600">
           Selected Images: {selectedImages.length}
         </p>
-      </div> */}
+      </div>
 
       <div className="grid grid-cols-5 relative p-4 gap-1" ref={ctrRef}>
         <AnimatePresence>
@@ -325,7 +325,7 @@ const GalleryPage: React.FC = () => {
                   className="w-full z-10 h-full absolute inset-0 object-cover select-none pointer-events-none"
                 />
               )}
-              <img
+              <Image
                 src={img.urls.small || "/placeholder.svg"}
                 alt={img.alt_description || "Unsplash image"}
                 className="w-full z-0 h-full absolute inset-0 object-cover select-none pointer-events-none"
